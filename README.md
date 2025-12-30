@@ -1,133 +1,244 @@
-# 🌍 WanderLust
+# 🌍 WanderLust – Travel Listing Platform
 
-WanderLust is a full-stack travel listing and destination exploration web application. It allows users to discover places, create and manage listings, upload images, view locations on interactive maps, and share experiences through reviews and ratings. The project is built with a focus on clean architecture, security, and scalability.
+A full-stack travel listing and destination exploration web application that allows users to discover places, create and manage listings, upload images, view locations on interactive maps, and share experiences through reviews and ratings. Built with a focus on clean architecture, security, and scalability.
 
 ---
 
 ## 🚀 Live Demo
 
-🔗 https://wanderlust-j31l.onrender.com/listings
+**[https://wanderlust-j31l.onrender.com/listings](https://wanderlust-j31l.onrender.com/listings)**
 
 ---
 
 ## 📖 Project Overview
 
-WanderLust provides a platform where users can explore travel destinations and share detailed listings. Each listing includes images, descriptions, pricing, location details, and user reviews. Authenticated users can create, edit, and delete their own listings, while visitors can browse and review destinations.
+WanderLust provides a comprehensive platform where users can explore travel destinations and share detailed listings. Each listing includes images, descriptions, pricing, location details, and user reviews. Authenticated users can create, edit, and delete their own listings, while visitors can browse and review destinations.
 
-The application follows the MVC (Model-View-Controller) architecture to ensure better organization, maintainability, and scalability. Third-party services are integrated for cloud image storage and map visualization, along with secure authentication and authorization.
+The application follows the **MVC (Model-View-Controller)** architecture to ensure better organization, maintainability, and scalability. Third-party services are integrated for cloud image storage and map visualization, along with secure authentication and authorization.
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-- 🔐 User Authentication (Signup, Login, Logout)
-- 🧑‍💼 Role-based Authorization
-- 🏠 Create, Edit, and Delete Listings
-- 🖼️ Image Upload and Management using Cloud Storage
-- ⭐ Review and Rating System
-- 🗺️ Interactive Map Integration for Locations
-- 🛡️ Secure Session Handling
-- 📱 Responsive Design for All Screen Sizes
+- 🔐 **User Authentication** – Secure Signup, Login, and Logout
+- 🧑‍💼 **Role-based Authorization** – Protected routes and ownership validation
+- 🏠 **Listing Management** – Create, Edit, and Delete travel listings
+- 🖼️ **Cloud Image Storage** – Seamless image uploads via Cloudinary
+- ⭐ **Review & Rating System** – Users can rate and review listings
+- 🗺️ **Interactive Maps** – Location visualization using Mapbox
+- 🛡️ **Secure Sessions** – Session-based authentication with Passport.js
+- 📱 **Responsive Design** – Optimized for mobile, tablet, and desktop
+- ✅ **Data Validation** – Server-side validation using Joi
+- 💬 **Flash Messages** – Real-time user feedback
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- HTML5  
-- CSS3  
-- Bootstrap  
-- EJS (Embedded JavaScript Templates)
+- **HTML5** – Semantic markup
+- **CSS3** – Modern styling
+- **Bootstrap** – Responsive UI framework
+- **EJS** – Embedded JavaScript templates
 
 ### Backend
-- Node.js  
-- Express.js  
+- **Node.js** – JavaScript runtime
+- **Express.js** – Web application framework
 
 ### Database
-- MongoDB (MongoDB Atlas)  
-- Mongoose ODM  
+- **MongoDB** – NoSQL database
+- **Mongoose** – MongoDB object modeling
+- **MongoDB Atlas** – Cloud database hosting
 
-### Tools & Services
-- Cloudinary (Image Storage)
-- Mapbox (Maps & Geolocation)
-- Passport.js (Authentication)
-- Express-Session & Connect-Flash
-- Render (Deployment)
+### Third-Party Services
+- **Cloudinary** – Cloud-based image storage and management
+- **Mapbox** – Interactive maps and geolocation
+- **Passport.js** – Authentication middleware
+- **Express-Session** – Session management
+- **Connect-Flash** – Flash message middleware
+
+### Deployment
+- **Render** – Cloud application hosting
 
 ---
 
 ## 📁 Project Structure
+
+```
 WanderLust/
-├── controllers/ # Application logic
-├── models/ # Database schemas
-├── routes/ # Express routes
-├── views/ # EJS templates
-├── public/ # Static files (CSS, JS, Images)
-├── utils/ # Utility and helper functions
-├── cloudConfig.js # Cloudinary configuration
-├── app.js # Main application file
-└── package.json
+│
+├── controllers/        # Application logic and request handlers
+├── models/            # MongoDB schemas (Listing, User, Review)
+├── routes/            # Express route definitions
+├── views/             # EJS template files
+│   ├── layouts/       # Page layouts
+│   ├── listings/      # Listing-related views
+│   └── users/         # User authentication views
+├── public/            # Static assets
+│   ├── css/          # Stylesheets
+│   ├── js/           # Client-side JavaScript
+│   └── images/       # Static images
+├── utils/             # Utility functions and helpers
+├── middleware/        # Custom middleware (auth, validation)
+├── cloudConfig.js     # Cloudinary configuration
+├── app.js            # Main application entry point
+├── .env              # Environment variables (not in repo)
+└── package.json      # Project dependencies
+```
 
 ---
 
-## ⚙️ Environment Variables
+## 🚀 Getting Started
 
-Create a `.env` file in the root directory and add the following variables:
+### Prerequisites
+- Node.js (v16+)
+- MongoDB Atlas account or local MongoDB
+- Cloudinary account
+- Mapbox account
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/Surajrawat7017/wanderlust.git
+cd wanderlust
+```
+
+2. **Install dependencies**
+```bash
+npm install
+```
+
+3. **Configure environment variables**
+
+Create a `.env` file in the root directory:
+```env
 CLOUD_NAME=your_cloudinary_name
 CLOUD_API_KEY=your_cloudinary_api_key
 CLOUD_API_SECRET=your_cloudinary_api_secret
-
 MAP_TOKEN=your_mapbox_access_token
 MONGO_URL=your_mongodb_connection_string
 SESSION_SECRET=your_session_secret
+PORT=3000
+```
 
+4. **Run the application**
+```bash
+npm start
+```
+
+5. **Access the application**
+Open your browser and navigate to `http://localhost:3000`
 
 ---
 
 ## 🔐 Authentication & Security
 
-- Passwords are hashed and stored securely
-- Session-based authentication using Passport.js
-- Protected routes with authorization middleware
-- Only listing owners can update or delete their listings
+- ✅ **Password Hashing** – Passwords are securely hashed before storage
+- 🔑 **Session-based Auth** – Using Passport.js for authentication
+- 🛡️ **Protected Routes** – Authorization middleware for secure endpoints
+- 👤 **Ownership Validation** – Only listing owners can update or delete
+- 🔒 **Session Security** – Secure session handling with express-session
 
 ---
 
 ## 🧪 Validation & Error Handling
 
-- Server-side validation using Joi
-- Centralized error handling
-- Flash messages for user feedback
+- ✅ **Server-side Validation** – Using Joi schema validation
+- 🎯 **Centralized Error Handling** – Custom error handling middleware
+- 💬 **Flash Messages** – User-friendly feedback for actions
+- 🐛 **Error Logging** – Comprehensive error tracking
+
+---
+
+## 🗺️ API Routes
+
+### Listings
+| Method | Route | Description | Auth Required |
+|--------|-------|-------------|---------------|
+| GET | `/listings` | Get all listings | No |
+| GET | `/listings/new` | Show create form | Yes |
+| POST | `/listings` | Create new listing | Yes |
+| GET | `/listings/:id` | Show listing details | No |
+| GET | `/listings/:id/edit` | Show edit form | Yes (Owner) |
+| PUT | `/listings/:id` | Update listing | Yes (Owner) |
+| DELETE | `/listings/:id` | Delete listing | Yes (Owner) |
+
+### Reviews
+| Method | Route | Description | Auth Required |
+|--------|-------|-------------|---------------|
+| POST | `/listings/:id/reviews` | Create review | Yes |
+| DELETE | `/listings/:id/reviews/:reviewId` | Delete review | Yes (Owner) |
+
+### Authentication
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | `/signup` | Show signup form |
+| POST | `/signup` | Register new user |
+| GET | `/login` | Show login form |
+| POST | `/login` | Authenticate user |
+| GET | `/logout` | Logout user |
 
 ---
 
 ## 🌱 Future Enhancements
 
-- Wishlist / Favorites feature
-- Advanced search and filtering
-- User profile pages
-- Booking and reservation system
-- Real-time notifications
+- [ ] ❤️ Wishlist / Favorites feature
+- [ ] 🔍 Advanced search and filtering options
+- [ ] 👤 User profile pages with listing history
+- [ ] 📅 Booking and reservation system
+- [ ] 🔔 Real-time notifications
+- [ ] 💬 Direct messaging between users
+- [ ] 📊 Analytics dashboard for listing owners
+- [ ] 🌐 Multi-language support
+- [ ] 📱 Mobile app (React Native)
+- [ ] 💳 Payment gateway integration
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome.  
-Fork the repository, create a new branch, and submit a pull request.
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/improvement`)
+3. Make your changes
+4. Commit your changes (`git commit -am 'Add new feature'`)
+5. Push to the branch (`git push origin feature/improvement`)
+6. Open a Pull Request
 
 ---
 
 ## 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Cloudinary** – For image hosting and management
+- **Mapbox** – For interactive map integration
+- **Bootstrap** – For responsive UI components
+- **MongoDB Atlas** – For cloud database hosting
 
 ---
 
 ## 👨‍💻 Author
 
-Suraj Singh Rawat  
-B.Tech Student | Full Stack Web Developer  
+**Suraj Singh Rawat**  
+B.Tech Student | Full Stack Web Developer
 
-GitHub: https://github.com/Surajrawat7017/wanderlust.git
+- GitHub: [@Surajrawat7017](https://github.com/Surajrawat7017)
+- Project Repository: [WanderLust](https://github.com/Surajrawat7017/wanderlust)
 
+---
+
+<div align="center">
+
+### 🌟 If you found this project helpful, please give it a star! 🌟
+
+Made with ❤️ and ☕ by [Suraj Singh Rawat](https://github.com/Surajrawat7017)
+
+</div>
